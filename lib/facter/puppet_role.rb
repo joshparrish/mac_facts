@@ -1,5 +1,5 @@
 # ([a-z]+)[0-9]+, i.e. www01 or logger22 have a puppet_role of www or logger
-if Facter.value(:hostname) =~ /class/
+if Facter.value(:hostname) =~ /(class)/
   Facter.add('puppet_role') do
     setcode do
       $1
@@ -7,7 +7,7 @@ if Facter.value(:hostname) =~ /class/
   end
 
 # ([a-z]+), i.e. www or logger have a puppet_role of www or logger
-elsif Facter.value(:hostname) =~ /lab/
+elsif Facter.value(:hostname) =~ /(lab)/
   Facter.add('puppet_role') do
     setcode do
       $1
@@ -15,7 +15,7 @@ elsif Facter.value(:hostname) =~ /lab/
   end
 
 # ([a-z]+), i.e. www or logger have a puppet_role of www or logger
-elsif Facter.value(:hostname) =~ /fac/
+elsif Facter.value(:hostname) =~ /(fac)/
   Facter.add('puppet_role') do
     setcode do
       $1
