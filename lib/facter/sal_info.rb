@@ -57,7 +57,12 @@ elsif Facter.value(:hostname) =~ /lab208/
     end
   end
 
-
+elsif Facter.value(:hostname) =~ /cfa-facfc/
+  Facter.add('sal_key') do
+    setcode do
+        'sal_theatre_faculty'
+    end
+  end
 
 # Set to hostname if no patterns match
 else
