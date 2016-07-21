@@ -7,7 +7,7 @@ if Facter.value(:hostname) =~ /(class118|class119|class120|class210)/
   end
 
 # ([a-z]+), i.e. www or logger have a sal_key of www or logger
-elsif Facter.value(:hostname) =~ /fac.*[1][3][0-9]|fac[2][0-9][0-9]/
+elsif Facter.value(:hostname) =~ /fac.*[1][3][0-9]|cfa-fac[2][0-9][0-9]/
   Facter.add('sal_key') do
     setcode do
         'sal_music_faculty'
