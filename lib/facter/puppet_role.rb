@@ -6,7 +6,7 @@ if Facter.value(:hostname) =~ /(class118|class119|class120|class210)/
     end
   end
 
-elsif Facter.value(:hostname) =~ /fac.*[1][3][0-9]|cfa-fac[2][0-9][0-9]|cfa-fac154/
+elsif Facter.value(:hostname) =~ /fac.*[1][3][0-9]|cfa-fac[2][0-9][0-9]|cfa-fac254/
   Facter.add('puppet_role') do
     setcode do
         'music_faculty'
