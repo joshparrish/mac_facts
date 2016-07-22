@@ -1,24 +1,65 @@
 # ([a-z]+)[0-9]+, i.e. www01 or logger22 have a puppet_role of www or logger
-if Facter.value(:hostname) =~ /(class)/
+if Facter.value(:hostname) =~ /(class118|class119|class120|class210)/
   Facter.add('puppet_role') do
     setcode do
-      'classr'
+        'music_classroom'
+    end
+  end
+
+elsif Facter.value(:hostname) =~ /fac.*[1][3][0-9]|cfa-fac[2][0-9][0-9]|cfa-fac154/
+  Facter.add('puppet_role') do
+    setcode do
+        'music_faculty'
+    end
+  end
+
+elsif Facter.value(:hostname) =~ /lab209/
+  Facter.add('puppet_role') do
+    setcode do
+        'music_piano_lab'
+    end
+  end
+
+elsif Facter.value(:hostname) =~ /lab140/
+  Facter.add('puppet_role') do
+    setcode do
+        'music_lab140'
     end
   end
 
 # ([a-z]+), i.e. www or logger have a puppet_role of www or logger
-elsif Facter.value(:hostname) =~ /(lab)/
+elsif Facter.value(:hostname) =~ /cfaa-fac[1-2][0-9][0-9]|fac[1][0-1][0-9]|fac121/
   Facter.add('puppet_role') do
     setcode do
-      $1
+      'art_faculty'
     end
   end
 
-# ([a-z]+), i.e. www or logger have a puppet_role of www or logger
-elsif Facter.value(:hostname) =~ /(fac)/
+elsif Facter.value(:hostname) =~ /(class127|class[1][0][4-9])|cfaa-class209/
   Facter.add('puppet_role') do
     setcode do
-      $1
+      'art_classroom'
+    end
+  end
+
+elsif Facter.value(:hostname) =~ /lab204/
+  Facter.add('puppet_role') do
+    setcode do
+        'art_lab204'
+    end
+  end
+
+elsif Facter.value(:hostname) =~ /lab208/
+  Facter.add('puppet_role') do
+    setcode do
+        'art_lab208'
+    end
+  end
+
+elsif Facter.value(:hostname) =~ /cfa-fac158/
+  Facter.add('puppet_role') do
+    setcode do
+        'theatre_faculty'
     end
   end
 
@@ -26,7 +67,7 @@ elsif Facter.value(:hostname) =~ /(fac)/
 else
   Facter.add('puppet_role') do
     setcode do
-      'default'
+      'unassigned'
     end
   end
 end
